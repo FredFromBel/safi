@@ -10,40 +10,25 @@ on:
 
 jobs:
   build_and_deploy_job:
-    # Déploie sur push ou PR (sauf fermeture de PR)
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    permissions:
-      contents: read  # nécessaire pour checkout
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Build And Deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          # ⚠️ Garde le nom EXACT de ton secret (celui généré par Azure lors de la création de la SWA)
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_RED_ROCK_048319103 }}
           action: "upload"
-
-          # ----- Configuration des chemins -----
-          # Dossier contenant index.html ("/" = racine du repo). Adapte si ton site est dans un sous-dossier, ex: "site"
           app_location: "/"
-          # Pas de build -> on publie directement le contenu du app_location
           output_location: "/"
-          # Pas d’API Functions
           api_location: ""
-
-          # ----- Désactivation de la build -----
-          # Indique à l’action de NE PAS lancer Oryx / npm run build
           skip_app_build: true
+          production_branch: "main"
 
   close_pull_request_job:
-    # Nettoie l’environnement de préprod quand la PR est fermée
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    name: Close Pull Request Job
     steps:
       - name: Close Pull Request
         uses: Azure/static-web-apps-deploy@v1
