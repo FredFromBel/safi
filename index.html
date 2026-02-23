@@ -3,8 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Santé-Safi — Accompagnement infirmier à distance</title>
-  <meta name="description" content="Accompagnement infirmier à distance via WhatsApp. Écoute, orientation et conseils. Horaires définis. Paiement Mobile Money." />
+
+  <!-- SEO de base -->
+  <title>Santé-Safi — Conseil infirmier à distance</title>
+  <meta name="description" content="Service de conseil infirmier à distance via WhatsApp. Écoute, orientation et conseils personnalisés. Disponible 7j/7 de 08h à 21h. Paiement Mobile Money." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.sante-safi.be/" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sante-safi.be/" />
+  <meta property="og:title" content="Santé-Safi — Conseil infirmier à distance" />
+  <meta property="og:description" content="Service de conseil infirmier à distance via WhatsApp. Disponible 7j/7 de 08h à 21h. Paiement Mobile Money." />
+  <meta property="og:image" content="https://www.sante-safi.be/assets/img/banner-sante-safi.png" />
+  <meta property="og:locale" content="fr_CD" />
+  <meta property="og:site_name" content="Santé-Safi" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Santé-Safi — Conseil infirmier à distance" />
+  <meta name="twitter:description" content="Service de conseil infirmier à distance via WhatsApp. Disponible 7j/7 de 08h à 21h." />
+  <meta name="twitter:image" content="https://www.sante-safi.be/assets/img/banner-sante-safi.png" />
+
+  <!-- Schema.org (données structurées Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Santé-Safi",
+    "description": "Service de conseil infirmier à distance via WhatsApp",
+    "url": "https://www.sante-safi.be/",
+    "image": "https://www.sante-safi.be/assets/img/banner-sante-safi.png",
+    "openingHours": "Mo-Su 08:00-21:00",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceType": "WhatsApp"
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     .payment-card{
@@ -56,7 +93,6 @@
       <div class="pill"><span class="dot">●</span><span id="statusText">Réponse durant les horaires affichés</span></div>
     </div>
 
-    <!-- Banner -->
     <section class="hero" aria-label="Bannière">
       <img src="assets/img/banner-sante-safi.png" alt="Accompagnement infirmier à distance via WhatsApp" />
     </section>
@@ -150,14 +186,14 @@
 
     <div class="footer">
       <p>
-        Mentions : Ce site présente un service d'accompagnement infirmier à distance. Les informations fournies ne remplacent pas une consultation médicale en présentiel.
+        Mentions : Ce site présente un service de conseil infirmier à distance. Les informations fournies ne remplacent pas une consultation médicale en présentiel.
       </p>
     </div>
   </div>
 
   <script>
     const WHATSAPP_PHONE_E164 = "+243800364455";
-    const DEFAULT_MESSAGE = "Bonjour, je souhaite un accompagnement infirmier à distance. Voici ma demande : ";
+    const DEFAULT_MESSAGE = "Bonjour, je souhaite un conseil infirmier à distance. Voici ma demande : ";
 
     const waUrl = "https://wa.me/" + WHATSAPP_PHONE_E164.replace(/\+/g,"") + "?text=" + encodeURIComponent(DEFAULT_MESSAGE);
     document.getElementById("waBtn").setAttribute("href", waUrl);
